@@ -3,8 +3,8 @@ import { assets } from '../assets/assets'
 
 const Navbar = () => {
   return (
-    <div className='flex items-center justify-between py-5 font-medium'>
-        <img src={assets.logo} className='w-36' alt="" />
+    <div className='flex items-center justify-between font-medium h-20 border-2 border-amber-200-'>
+        <img src={assets.gboyega} className='w-36' alt="" />
 
     </div>
   )
