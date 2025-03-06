@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
 
-    <div className='flex items-center justify-between font-medium h-20 border-2 border-amber-200-'>
+    <div className='flex items-center justify-between font-medium h-20'>
         <Link to="/">
          <img src={assets.gboyega} className='w-36' alt="" />
         </Link>
@@ -61,6 +61,10 @@ const Navbar = () => {
                 <img  src={assets.dropdown_icon} className='h-4 rotate-180' alt="" />
                 <p>Back</p>
             </div>
+            <NavLink onClick={()=>setVisible(false)} className="py-2 pl-6 border" to="/">HOME</NavLink>
+            <NavLink onClick={()=>setVisible(false)}  className="py-2 pl-6 border"  to="/collection">COLLECTION</NavLink>
+            <NavLink onClick={()=>setVisible(false)}  className="py-2 pl-6 border"  to="/about">ABOUT</NavLink>
+            <NavLink onClick={()=>setVisible(false)}  className="py-2 pl-6 border"  to="/contact">CONTACT</NavLink>
            </div>
         </div>
 
