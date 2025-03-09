@@ -1,10 +1,13 @@
 import React from 'react'
 import Hero from '../components/Hero'
+import LatestCollectioon from '../components/LatestCollectioon'
+
 
 const Home = () => {
   return (
-    <div className='flex flex-col sm:flex-row border border-e-gray-400'>
-      <Hero/>
+    <div>
+         <Hero/>
+         <LatestCollectioon/>
     </div>
   )
 }
