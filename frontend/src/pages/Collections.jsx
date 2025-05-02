@@ -10,6 +10,7 @@ const Collections = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]); // Fixed typo here
+  const [sortOption, setSortOption] = useState("relevant")
 
   // Ensure products are set initially
   useEffect(() => {
@@ -47,6 +48,12 @@ const Collections = () => {
       );
     }
 
+    if (sortOption === "low-high") {
+      productsCopy.sort((a,b)=>a.price - b.price);
+    } else if(sortOption === "high-low"){
+      productsCopy.sort((a,b) =>b.price-a.price)
+    }
+
     setFilterProducts(productsCopy);
   };
 
@@ -55,7 +62,7 @@ const Collections = () => {
     if (products.length > 0) {
       applyFilter();
     }
-  }, [category, subCategory, products]); // Added products here
+  }, [category, subCategory, products,sortOption]); // Added products here
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
@@ -112,7 +119,7 @@ const Collections = () => {
           <Title text1={'All'} text2={'COLLECTIONS'} />
 
           {/* PRODUCT SORTING */}
-          <select className='border-2 border-gray-300 text-sm px-2'>
+          <select onChange={(e) => setSortOption(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
             <option value='relavent'>Sort by: Relavent</option>
             <option value='low-high'>Sort by: Low to High</option>
             <option value='high-low'>Sort by: High to Low</option>
