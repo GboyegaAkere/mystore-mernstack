@@ -5,7 +5,7 @@ import Title from '../components/Title';
 import ProductItems from '../components/ProductItems';
 
 const Collections = () => {
-  const { products } = useContext(ShopContext);
+  const { products,search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFiter] = useState(true);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -54,6 +54,13 @@ const Collections = () => {
       productsCopy.sort((a,b) =>b.price-a.price)
     }
 
+    if (showSearch && search) {
+  productsCopy = productsCopy.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+}
+
+
     setFilterProducts(productsCopy);
   };
 
@@ -62,7 +69,7 @@ const Collections = () => {
     if (products.length > 0) {
       applyFilter();
     }
-  }, [category, subCategory, products,sortOption]); // Added products here
+  }, [category, subCategory, products,sortOption,showSearch,search]); // Added products here
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
