@@ -52,12 +52,32 @@ useEffect(() => {
   console.log(cartItems);
 }, [cartItems]);
 
+const updateQuantity = async(itemId, size, quantity) => {
+    let CartData = structuredClone(cartItems);
+    CartData[itemId] [size] = quantity
+    setCartItems(CartData)
+}
 
-
+const getCartAmount = async () =>{
+  let totalAmount = 0;
+  for(const items in cartItems){
+    let itemInfo = products.find((product)=>product._id === items)
+    for(const item in cartItems[items]){
+      try {
+        if (cartItems[items][item] > 0) {
+          totalAmount += itemInfo.price *cartItems[items][item]
+        }
+      } catch (error) {
+        
+      }
+    }
+  }
+  return totalAmount;
+}
 
     const value = {
         products,currency,deliveryFee,search,setSearch,
-        showSearch,setShowSearch,cartItems,addToCart,getCartCount
+        showSearch,setShowSearch,cartItems,addToCart,getCartCount,updateQuantity,getCartAmount
     }
 
     return (
