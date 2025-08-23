@@ -60,7 +60,11 @@ const updateQuantity = async(itemId, size, quantity) => {
     setCartItems(CartData)
 }
 
+<<<<<<< HEAD
 const getCartAmount = () =>{
+=======
+const getCartAmount = async () =>{
+>>>>>>> 9425ac8b0130258f8b53ab2054c536f4e6020b6f
   let totalAmount = 0;
   for(const items in cartItems){
     let itemInfo = products.find((product)=>product._id === items)
@@ -79,7 +83,11 @@ const getCartAmount = () =>{
 
     const value = {
         products,currency,deliveryFee,search,setSearch,
+<<<<<<< HEAD
         showSearch,setShowSearch,cartItems,addToCart,getCartCount,updateQuantity,getCartAmount,navigate
+=======
+        showSearch,setShowSearch,cartItems,addToCart,getCartCount,updateQuantity,getCartAmount
+>>>>>>> 9425ac8b0130258f8b53ab2054c536f4e6020b6f
     }
 
     return (
