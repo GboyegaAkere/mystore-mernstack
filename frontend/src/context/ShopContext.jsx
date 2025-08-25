@@ -60,7 +60,7 @@ const updateQuantity = async(itemId, size, quantity) => {
     setCartItems(CartData)
 }
 
-const getCartAmount = async () =>{
+const getCartAmount = () =>{
   let totalAmount = 0;
   for(const items in cartItems){
     let itemInfo = products.find((product)=>product._id === items)
@@ -79,7 +79,7 @@ const getCartAmount = async () =>{
 
     const value = {
         products,currency,deliveryFee,search,setSearch,
-        showSearch,setShowSearch,cartItems,addToCart,getCartCount,updateQuantity,getCartAmount
+        showSearch,setShowSearch,cartItems,addToCart,getCartCount,updateQuantity,getCartAmount,navigate
     }
 
     return (

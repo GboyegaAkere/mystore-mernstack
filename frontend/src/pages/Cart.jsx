@@ -5,11 +5,7 @@ import { assets } from '../assets/assets'
 import CartTotals from '../components/CartTotals'
 
 const Cart = () => {
-<<<<<<< HEAD
   const {products, currency, cartItems,updateQuantity, navigate} = useContext(ShopContext) 
-=======
-  const {products, currency, cartItems,updateQuantity} = useContext(ShopContext) 
->>>>>>> 9425ac8b0130258f8b53ab2054c536f4e6020b6f
   const [cartData, setCartData] = useState([])
 
   useEffect(()=>{
